@@ -1,0 +1,34 @@
+---
+---
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <nav>
+                <a href="{{ site.baseurl }}/">archive</a>
+                <a href="{{ site.baseurl }}/creators">Creators</a>
+                <a href="{{ site.baseurl }}/about">About</a>
+                <a href="{{ site.baseurl }}/search">Search</a>
+            </nav>
+        </div>
+        <div id = "content">
+            <br>
+            {% assign licence = site.data.licences | find: "licence", page.licence %}
+            {% assign creator = site.data.creators | find: "name", page.creator %}
+            <img style="width: 50%;" src = "{{ page.image-url }}" id = "exhibit">
+            <p>{{ page.contents }}</p>
+            <p>{{ page.title }} by <a href = "{{ creator.homepage }}">{{ page.creator }}</a></p>
+            <p><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en"+"{{ licence.url }}">{{ page.licence }}</a></p>
+            <p>Address:{{ page.Address }}</p>
+            <p><a href=" {{ page.tags }}">Google Map</a></p>
+        </div>
+        <div id = "footer">
+            <p>Created with <a href="https://jekyllrb.com/">Jekyll</a> for teaching purposes by <a href="https://github.com/Chelsea0806/Film-Location-Archive-2">Chelsea0806</a> in 2022</p>
+        </div>
+    </div>
+</body>
